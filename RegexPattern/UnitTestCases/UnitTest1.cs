@@ -10,30 +10,52 @@ namespace UnitTestCases
     [TestClass]
     public class UnitTest1
     {
-      public class Tests
-    {
-        Validation validation;
-        [SetUp]
-        public void Setup()
+        public class Tests
         {
-            validation = new Validation();
-        }
-        //<summary>
-        //uc1 : Comparing the first name of user
-        //</summary>
-        [Test]
-        public void Comparing_the_First_Name_of_User()
-        {
+            Validation validation;
+            [SetUp]
+            public void Setup()
+            {
+                validation = new Validation();
+            }
+            //<summary>
+            //uc1 : Comparing the first name of user
+            //</summary>
+            [Test]
+            public void Comparing_the_First_Name_of_User()
+            {
 
 
+                {
+                    //Arrange
+                    string firstName = "jayesh";
+                    string expected = "First Name is invalid";
+                    try
+                    {
+                        //Act
+                        validation.First_Name(firstName);
+                    }
+                    catch (RegexCustomExpection expection)
+                    {
+                        //Assert
+                        Assert.AreEqual(expected, expection.Message);
+                    }
+                }
+            }
+            //<summary>
+            //uc2 : Comparing the last name of user
+            //</summary>
+            [Test]
+            public void Comparing_the_Last_Name_of_User()
             {
                 //Arrange
-                string firstName = "jayesh";
-                string expected = "First Name is invalid";
+                string lastName = "borase";
+                string expected = "Last Name is invalid";
                 try
                 {
                     //Act
-                    validation.First_Name(firstName);
+                    validation = new Validation();
+                    validation.Last_Name(lastName);
                 }
                 catch (RegexCustomExpection expection)
                 {
@@ -41,7 +63,7 @@ namespace UnitTestCases
                     Assert.AreEqual(expected, expection.Message);
                 }
             }
-        }
+        
         
     }
 }
