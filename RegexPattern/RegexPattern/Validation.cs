@@ -50,5 +50,25 @@ namespace RegexPattern
                 throw new RegexCustomExpection(RegexCustomExpection.Exceptiontype.LASTNAME_INVALID, "Last Name is invalid");
             }
         }
+        public string EmailId(string Email_Id)
+        {
+            try
+            {
+                Regex regex = new Regex(Email);
+                if (regex.IsMatch(Email_Id))
+                {
+                    Console.WriteLine("EmailId is valid :" + Email_Id);
+                    return Email_Id;
+                }
+                else
+                {
+                    throw new RegexCustomExpection(RegexCustomExpection.Exceptiontype.EMAILID_INVALID, "Email is invalid");
+                }
+            }
+            catch
+            {
+                throw new RegexCustomExpection(RegexCustomExpection.Exceptiontype.EMAILID_INVALID, "Email is invalid");
+            }
+        }
     }
 }
